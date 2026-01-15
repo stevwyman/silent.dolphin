@@ -7,10 +7,10 @@ function cleanEmailBody(rawBody) {
   if (!rawBody) return "[No Body Content]";
 
   // 1. SIGNATURE REMOVAL (Same as before)
-  const signatureDelimiters = ["--", "__", "\n--\n", "\n-- \n", 
-                              "\nregards", "\nBest regards", "\nWith best regards", "\nKind regards",
-                              "\nMit freundlichen Grüßen", "\nViele Grüße", "\nDanke und Gruß", "\nGrüße",
-                              "\n>", "Join with Google Meet"];
+  const signatureDelimiters = ["--", "__", "\n--\n", "\n-- \n",
+    "\nregards", "\nBest regards", "\nWith best regards", "\nKind regards",
+    "\nMit freundlichen Grüßen", "\nViele Grüße", "\nDanke und Gruß", "\nGrüße",
+    "\n>", "Join with Google Meet"];
   let cleanedBody = rawBody;
   for (const delimiter of signatureDelimiters) {
     const index = cleanedBody.indexOf(delimiter);
@@ -93,7 +93,7 @@ function updateEmailsForLabel(labelName, docBaseName) {
       batchContent += `### Sender: ${sender}\n`;
       batchContent += `### To: ${toRecipients}\n`; // Add 'To' recipients
       if (ccRecipients) { // Check if there are 'Cc' recipients
-          batchContent += `### Cc: ${ccRecipients}\n`; // Add 'Cc' recipients
+        batchContent += `### Cc: ${ccRecipients}\n`; // Add 'Cc' recipients
       }
       batchContent += `### Body:\n${safeBody}\n\n`;
       batchContent += "---\n\n";
